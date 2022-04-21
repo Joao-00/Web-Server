@@ -4,13 +4,27 @@
 
 const http = require('http');
 
-//request - response
-http.createServer((req, res) =>{
-    res.write('hola mundo');
 
+    
+    //request - response
+http.createServer((req, res) =>{
+    
+
+    // res.writheHead(200, {'Content-Type': 'application/JSON'})
+    res.writheHead(200, {'Content-Type': 'application/csv'})
+
+    
+    res.write('');
+    res.write('');
+    res.write('');
+    res.write('');
+    res.write('');
+    
     res.end();
 })
 //puerto
 .listen(8080);
-
+    
 console.log('escuchando el puerto', 8080);
+
+
