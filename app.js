@@ -11,14 +11,15 @@ http.createServer((req, res) =>{
     
 
     // res.writheHead(200, {'Content-Type': 'application/JSON'})
+    res.setHeander('Content-Disposition', 'attachment; filename=lista.csv')
     res.writheHead(200, {'Content-Type': 'application/csv'})
 
     
-    res.write('');
-    res.write('');
-    res.write('');
-    res.write('');
-    res.write('');
+    res.write('id , nombre\n');
+    res.write('1, fernando\n');
+    res.write('2, maria\n');
+    res.write('3, juan\n');
+    res.write('4, pedro\n');
     
     res.end();
 })
