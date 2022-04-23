@@ -1,31 +1,29 @@
-// para crear un servidor http
-// https://nodejs.org/dist/latest-v16.x/docs/api/http.html#httpcreateserveroptions-requestlistener
+//paquete utilizado
+//https://www.npmjs.com/package/express
+//https://expressjs.com/
+const express = require('express')
+const app = express()
+const port = 8082;
+
+//para servir contenido estatico
+app.use(express.static('public'));
 
 
-const http = require('http');
 
-
-    
-    //request - response
-http.createServer((req, res) =>{
-    
-
-    // res.writheHead(200, {'Content-Type': 'application/JSON'})
-    res.setHeander('Content-Disposition', 'attachment; filename=lista.csv')
-    res.writheHead(200, {'Content-Type': 'application/csv'})
-
-    
-    res.write('id , nombre\n');
-    res.write('1, fernando\n');
-    res.write('2, maria\n');
-    res.write('3, juan\n');
-    res.write('4, pedro\n');
-    
-    res.end();
+app.get('/', function (req, res) {
+  res.send('Hello World')
 })
-//puerto
-.listen(8080);
-    
-console.log('escuchando el puerto', 8080);
 
+app.get('/hola-mundo', function (req, res) {
+    res.send('Hola mundo en su respectiva ruta')
+})
 
+app.get('*', function (req, res) {
+    res.send('404 | Page not found')
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
+
+//app.listen(8082)
