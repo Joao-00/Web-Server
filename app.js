@@ -7,17 +7,28 @@
 const express = require('express')
 const app = express()
 const port = 8082;
+const hbs = require('hbs');
 
-//TODO: require('hbs')
+
+
+
+//Handlebars
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 //para servir contenido estatico
 app.use(express.static('public'));
 
 
 app.get('/', (req, res) =>{
-  res.render('home');
+  res.render('home', {
+      nombre:'Paulo Joao',
+      titulo: 'Curso de node'
+  });
 });
+
+
+
 
 app.get('/generic', function (req, res) {
     res.sendFile(__dirname + '/public/generic.html')
