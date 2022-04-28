@@ -4,9 +4,11 @@
 
 //https://www.npmjs.com/package/handlebars
 
+require('dotenv').config();
 const express = require('express')
 const app = express()
-const port = 8082;
+
+const port = process.env.PORT;
 const hbs = require('hbs');
 
 
@@ -26,9 +28,6 @@ app.get('/', (req, res) =>{
       titulo: 'Curso de node'
   });
 });
-
-
-
 
 app.get('/generic', (req, res) =>{
     res.render('generic', {
