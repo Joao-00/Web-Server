@@ -30,11 +30,18 @@ app.get('/', (req, res) =>{
 
 
 
-app.get('/generic', function (req, res) {
-    res.sendFile(__dirname + '/public/generic.html')
+app.get('/generic', (req, res) =>{
+    res.render('generic', {
+        nombre:'Paulo Joao',
+        titulo: 'Curso de node'
+    });
 });
-app.get('/elements', function (req, res) {
-    res.sendFile(__dirname + '/public/elements.html')
+
+app.get('/elements', (req, res) =>{
+    res.render('elements', {
+        nombre:'Paulo Joao',
+        titulo: 'Curso de node'
+    });
 });
 
 
